@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <side-bar/>
-
+    <new-todo/>
   </div>
 </template>
 
@@ -9,13 +9,14 @@
 
 
 import SideBar  from './components/weeks.vue'
+import newTodo  from './components/newTodo.vue'
 
 
 export default {
   name: 'App',
   components :{
     SideBar,
-
+    newTodo
   }
 }
 </script>
