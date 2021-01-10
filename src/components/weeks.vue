@@ -22,12 +22,15 @@ export default {
 
 <style scoped>
 aside{
+    position:absolute;
     float :left;
+    clear: both;
     padding: 5px 15px;
     height: 98.5vh;
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 li{

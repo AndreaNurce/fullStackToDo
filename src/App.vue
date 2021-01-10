@@ -1,6 +1,8 @@
 <template>
   <div id="app">
+    <div v-if="1" >
     <side-bar/>
+    </div>
     <new-todo/>
   </div>
 </template>
