@@ -36,6 +36,7 @@ aside{
 li{
     list-style-type: none;
     padding: 5px;
+    transform: translateY(-50%);
 }
 
 </style>

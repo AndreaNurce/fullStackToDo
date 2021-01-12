@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <div v-if="1" >
     <side-bar/>
-    </div>
     <new-todo/>
+    <todos/>
+
   </div>
 </template>
 
@@ -12,13 +12,16 @@
 
 import SideBar  from './components/weeks.vue'
 import newTodo  from './components/newTodo.vue'
+import todos  from './components/todos.vue'
+
 
 
 export default {
   name: 'App',
   components :{
     SideBar,
-    newTodo
+    newTodo,
+    todos
   }
 }
 </script>

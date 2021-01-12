@@ -1,12 +1,12 @@
 <template>
 
     <div class="addToDo">
-            <div class="newItem"><span> Add new item </span><img style="height:24px;padding: 5px;" src="../assets/add.png" alt=" " ></div>
-            <br>
-            <div class="addNewItem">
-                <input type="text" name="toDO">
-                <div class="important"> Important <img style="height:16px;padding:0 0 0 15px;" src="../assets/star.png" alt=" " > </div>
-                <div class="save">Save</div>
+        <br><br>    
+            <div v-if="show" v-on:click="show = !show" class="newItem"><span> Add new item </span><img style="height:20px;padding: 5px;" src="../assets/add.png" alt=" " ></div>
+            <div class="addNewItem"  v-if="!show">
+                <input type="text" style="width:200px" name="toDO">
+                <div class="important"> <span>Important</span> <img style="height:16px;padding:0 0 0 15px;" src="../assets/star.png" alt=" " > </div>
+                <div class="save" v-on:click="show = !show;" ><span>Save</span> <img style="height:16px;padding:0 0 0 15px;" src="../assets/down-arrow.png" alt=" " > </div>
             </div>
 
     </div>
@@ -15,24 +15,28 @@
 
 <script>
 export default {
+    data : () => {
+    return  {
+        show : 0,
+    }
+}
 
 }
 </script>
 
-<style scouped>
+<style scoped>
 .addToDo{
-    margin-top:  3vh;
-    clear: both;
-    
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
 }
 .addNewItem{
     display: flex;
-    width : 200px;
     align-items: center;
     justify-items: center;
     margin: 0 auto;
-    transform: translateX(-50%);
-
+    width: 525px;
 }
 .addNewItem > * {
     padding : 5px;
@@ -47,6 +51,7 @@ export default {
     justify-items: center;
     padding: 6px 24px 6px 24px ;
     background-color: cadetblue;
+    z-index: 100;
 }
 .newItem  {
     display: flex;
@@ -54,7 +59,7 @@ export default {
     align-items: center;
     justify-content: center;
     background-color: cadetblue;
-    padding: 8px 16px;
+    padding: 3px 16px;
     margin: 0 auto;
 }
 
