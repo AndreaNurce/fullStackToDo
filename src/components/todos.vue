@@ -2,22 +2,7 @@
 
     <div id="toDoList" >
         <ul>
-            <li>To do item</li>
-            <li>To do item</li>
-            <li>To do item</li>
-            <li>To do item</li>
-            <li>To do item</li>
-            <li>To do item</li>
-            <li>To do item</li>
-            <li>To do item</li>
-            <li>To do item</li>
-            <li>To do item</li>
-            <li>To do item</li>
-            <li>To do item</li>
-            <li>To do item</li>
-            <li>To do item</li>
-            <li>To do item</li>
-            <li>To do item</li>
+            <li>To do item <img src="" alt=""></li>
         </ul>
 
     </div>

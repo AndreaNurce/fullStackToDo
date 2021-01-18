@@ -3,7 +3,7 @@
             <aside>
         <div class="sideBarContainer">
                 <ul>
-                    <li>Monday</li>
+                    <li @click="getDate()">Monday</li>
                     <li>Tuesday</li>
                     <li>Wednesday</li>
                     <li>Tursday</li>
@@ -16,6 +16,20 @@
 
 <script>
 export default {
+    data() {
+        return {
+            week : '',
+        }
+    },
+    methods: {
+    getDate: function (){
+        
+  var currentDate = new Date();
+
+  this.week = currentDate.toLocaleString("default", { weekday: "long" });
+  console.log(this.week);
+}
+    }
 
 }
 </script>
