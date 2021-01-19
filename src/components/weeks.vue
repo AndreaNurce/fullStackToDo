@@ -53,6 +53,7 @@ li{
     list-style-type: none;
     padding: 5px;
     margin: 5px 0px ;
+    transition:all ease-in-out .2s;
 
 }
 li:hover{
