@@ -9,12 +9,14 @@
 
             <div class="addNewItem"  v-if="!show">
                 <input type="text" style="width:200px" name="toDO">
-                <div class="important"> 
+                <div class="important" @click="important = !important"> 
                     <span>Important</span>
-                     <img style="height:16px;padding:0 0 0 15px;" src="../assets/star.png" alt=" " > 
+                     <img v-if="!important" style="height:16px;padding:0 0 0 15px;" src="../assets/star.png" alt=" " > 
+                     <img v-if="important" style="height:16px;padding:0 0 0 15px;" src="../assets/stared.png" alt=" " > 
+
                 </div>
             
-                <div class="save" v-on:click="show = !show;" >
+                <div class="save" v-on:click="(show = !show )&&(important = false)" >
                     <span>Save</span>
                     <img style="height:16px;padding:0 0 0 15px;" src="../assets/down-arrow.png" alt=" " >
                  </div>
@@ -28,6 +30,7 @@ export default {
     data : () => {
     return  {
         show : true,
+        important : true,
     }
 }
 
