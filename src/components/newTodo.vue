@@ -27,7 +27,7 @@
 export default {
     data : () => {
     return  {
-        show : 0,
+        show : true,
     }
 }
 
