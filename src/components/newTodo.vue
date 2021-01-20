@@ -72,5 +72,11 @@ export default {
     padding: 3px 16px;
     margin: 0 auto;
 }
+.newItem{
+    cursor: pointer;
+}
+.newItem,.important ,.save:hover{
+     cursor: pointer;
+}
 
 </style>
