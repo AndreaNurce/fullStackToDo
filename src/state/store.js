@@ -6,6 +6,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state :{
         week: '',
+        show: false,
+        important: false,
     },
     mutations :{
         getDate(state) {
@@ -13,9 +15,14 @@ export default new Vuex.Store({
             state.week = currentDate.toLocaleString("default", { weekday: "long" });
             
         },
-        print(state,day){
-            state.week = day;
+        print(state,payload){
+            state.week = payload;
             console.log(state.week);
-        }
-    },
+        }, stare(state){
+            state.important = !state.important;
+        }, save(state) {
+            state.show = !state.show;
+            state.important =false;
+        },
+    }
 })

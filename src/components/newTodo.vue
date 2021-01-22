@@ -2,21 +2,21 @@
 
     <div class="addToDo">
                 <br><br>    
-            <div v-if="show" v-on:click="show = !show" class="newItem">
+            <div v-if="show" v-on:click="save" class="newItem">
                 <span> Add new item </span>
                 <img style="height:20px;padding: 5px;" src="../assets/add.png" alt=" " >
             </div>
 
             <div class="addNewItem"  v-if="!show">
                 <input type="text" style="width:200px" name="toDO">
-                <div class="important" @click="important = !important"> 
+                <div class="important" @click="stare"> 
                     <span>Important</span>
                      <img v-if="!important" style="height:16px;padding:0 0 0 15px;" src="../assets/star.png" alt=" " > 
                      <img v-if="important" style="height:16px;padding:0 0 0 15px;" src="../assets/stared.png" alt=" " > 
 
                 </div>
             
-                <div class="save" v-on:click="(show = !show )&&(important = false)" >
+                <div class="save" v-on:click="save" >
                     <span>Save</span>
                     <img style="height:16px;padding:0 0 0 15px;" src="../assets/down-arrow.png" alt=" " >
                  </div>
@@ -26,15 +26,19 @@
 </template>
 
 <script>
+    import {mapState} from "vuex"
+    import { mapMutations } from 'vuex'
 export default {
-    data : () => {
-    return  {
-        show : true,
-        important : true,
+    computed:{
+        ...mapState(['show','important']),
+        
+    },methods: {
+
+        ...mapMutations(['stare','save'])
+        
     }
 }
 
-}
 </script>
 
 <style scoped>

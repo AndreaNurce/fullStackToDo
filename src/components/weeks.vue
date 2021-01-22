@@ -23,7 +23,9 @@ export default {
         return {
         }
     },methods: {
+
         ...mapMutations(['getDate','print'])
+        
     },mounted(){
            this.getDate();
            this.print(this.$store.state.week);
