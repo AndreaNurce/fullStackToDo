@@ -2,7 +2,30 @@
 
     <div id="toDoList" >
         <ul>
-            <li>To do item <img src="" alt=""></li>
+            <li>To do item
+                <div>
+                <img
+                    style="height:20px;padding:0 15px;"
+                    src="../assets/stared.png" 
+                    alt=" " > 
+                <img
+                    style="height:20px;padding:0 15px;"
+                    src="../assets/delete.png" 
+                    alt=" " > 
+                </div>
+            </li>
+            <li>To do item
+                <div>
+                <img
+                    style="height:20px;padding:0 15px;"
+                    src="../assets/stared.png" 
+                    alt=" " > 
+                <img
+                    style="height:20px;padding:0 15px;"
+                    src="../assets/delete.png" 
+                    alt=" " > 
+                </div>
+            </li>
         </ul>
 
     </div>
@@ -19,7 +42,7 @@ export default {
 #toDoList{
     overflow: scroll;
     overflow-x: hidden;
-    width: 70vw;
+    width: 60vw;
     height: 550px;
     margin: 0 auto ;
     padding: 15px;
@@ -38,6 +61,10 @@ padding: 15px;
 
 }
 li{
+font-size: 20px;
+display: flex;
+justify-content: space-between;
+align-items: center;
 list-style-type: none;
 padding: 15px;
 

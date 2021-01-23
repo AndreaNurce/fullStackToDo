@@ -17,10 +17,11 @@ export default new Vuex.Store({
         },
         print(state,payload){
             state.week = payload;
-            console.log(state.week);
-        }, stare(state){
+        }, 
+        stare(state){
             state.important = !state.important;
-        }, save(state) {
+        },
+        save(state) {
             state.show = !state.show;
             state.important =false;
         },

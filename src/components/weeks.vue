@@ -3,11 +3,11 @@
             <aside>
         <div class="sideBarContainer">
                 <ul>
-                    <li @click="print('Monday') " :class="{active: this.$store.state.week == 'Monday' }">Monday</li>
-                    <li @click="print('Tuesday')  " :class="{active: this.$store.state.week == 'Tuesday' }">Tuesday</li>
-                    <li @click="print('Wednesday') " :class="{active: this.$store.state.week == 'Wednesday' }">Wednesday</li>
-                    <li @click="print('Tursday') " :class="{active: this.$store.state.week == 'Tursday' }">Tursday</li>
-                    <li @click="print('Friday') " :class="{active: this.$store.state.week == 'Friday' }">Friday</li>
+                    <li @click="print('Monday') " :class="{active: week == 'Monday' }">Monday</li>
+                    <li @click="print('Tuesday')  " :class="{active: week == 'Tuesday' }">Tuesday</li>
+                    <li @click="print('Wednesday') " :class="{active: week == 'Wednesday' }">Wednesday</li>
+                    <li @click="print('Tursday') " :class="{active: week == 'Tursday' }">Tursday</li>
+                    <li @click="print('Friday') " :class="{active: week == 'Friday' }">Friday</li>
                 </ul>
         </div>
             </aside>
@@ -16,19 +16,18 @@
 
 <script>
     import { mapMutations } from 'vuex'
+    import {mapState} from 'vuex'
 export default {
-
-    
-    data() {
-        return {
-        }
-    },methods: {
+    computed :{
+        ...mapState(['week'])
+    },
+    methods: {
 
         ...mapMutations(['getDate','print'])
         
-    },mounted(){
+    },created(){
            this.getDate();
-           this.print(this.$store.state.week);
+           this.print(this.week);
         }
 }
 </script>
@@ -47,6 +46,7 @@ aside{
 }
 
 li{
+
     list-style-type: none;
     padding: 5px;
     margin: 5px 0px ;
