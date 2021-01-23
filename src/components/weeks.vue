@@ -8,6 +8,8 @@
                     <li @click="print('Wednesday') " :class="{active: week == 'Wednesday' }">Wednesday</li>
                     <li @click="print('Tursday') " :class="{active: week == 'Tursday' }">Tursday</li>
                     <li @click="print('Friday') " :class="{active: week == 'Friday' }">Friday</li>
+                    <li @click="print('Saturday') " :class="{active: week == 'Saturday' }" style="color:red;">Saturday</li>
+                    <li @click="print('Sunday') " :class="{active: week == 'Sunday' }" style="color:red;">Sunday</li>
                 </ul>
         </div>
             </aside>

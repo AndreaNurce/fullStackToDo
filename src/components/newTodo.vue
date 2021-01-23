@@ -1,13 +1,13 @@
 <template>
 
     <div class="addToDo">
-                <br><br>    
-            <div v-if="show" v-on:click="save" class="newItem">
+
+            <div v-show="show" v-on:click="save" class="newItem">
                 <span> Add new item </span>
                 <img style="height:20px;padding: 5px;" src="../assets/add.png" alt=" " >
             </div>
 
-            <div class="addNewItem"  v-if="!show">
+            <div class="addNewItem"  v-show="!show">
                 <input type="text" style="width:200px" name="toDO">
                 <div class="important" @click="stare"> 
                     <span>Important</span>
@@ -22,7 +22,6 @@
                  </div>
             </div>
     </div>
-  
 </template>
 
 <script>
@@ -43,10 +42,10 @@ export default {
 
 <style scoped>
 .addToDo{
-    height: 200px;
-    display: flex;
+        display: flex;
     align-items: center;
     justify-items: center;
+    height: 200px;
 }
 .addNewItem{
     display: flex;
