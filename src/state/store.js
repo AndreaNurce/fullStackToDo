@@ -8,6 +8,7 @@ export default new Vuex.Store({
         week: '',
         show: false,
         important: false,
+        toDoText : '',
     },
     mutations :{
         getDate(state) {
@@ -25,5 +26,9 @@ export default new Vuex.Store({
             state.show = !state.show;
             state.important =false;
         },
-    }
+        setState(state, value){
+            state.toDoText = value;
+        }
+
+    },
 })
