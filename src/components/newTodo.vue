@@ -8,7 +8,7 @@
             </div>
 
             <div class="addNewItem"  v-show="!show">
-                <input type="text" v-model="payload" @keyup="printeee(payload)"  style="width:200px" name="toDO">
+                <input type="text" v-model="payload" @keyup="printeee(payload)"  style="width:200px" id="toDO">
                 <div class="important" @click="stare"> 
                     <span>Important</span>
                      <img v-if="!important" style="height:16px;padding:0 0 0 15px;" src="../assets/star.png" alt=" " > 
@@ -48,6 +48,9 @@ export default {
 </script>
 
 <style scoped>
+#toDO:focus{
+    outline: none;
+}
 .addToDo{
         display: flex;
     align-items: center;
