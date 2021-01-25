@@ -31,6 +31,8 @@ export default new Vuex.Store({
             state.show = !state.show;
             state.important =false;
             document.querySelector('#toDO').style.border = '1px solid black';
+            document.querySelector('#toDO').value = '';
+
 
         },
         setState(state, value){
