@@ -5,7 +5,7 @@ import store from './state/store'
 import axios from 'axios'
 
 Vue.use(Vuex);
-vue.ues(axios);
+Vue.use(axios);
 
 Vue.config.productionTip = false
 

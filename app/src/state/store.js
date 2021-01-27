@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 
-Vue.use(Vuex);
+Vue.use(Vuex)
+Vue.use(axios)
 
 export default new Vuex.Store({
     state :{
         week: '',
-        show: false,
+        show: true,
         important: false,
         toDoText : '',
     },
@@ -28,15 +30,28 @@ export default new Vuex.Store({
             }
         },
         save(state) {
+
+            axios.post('http://localhost:5000/',{
+                day: state.week,
+                data: state.toDoText,
+                important: state.important
+            })
+             
             state.show = !state.show;
             state.important =false;
-            document.querySelector('#toDO').style.border = '1px solid black';
-            document.querySelector('#toDO').value = '';
 
+
+        }, newItem(state){
+            state.show = !state.show;
+            state.important = false;
+            document.querySelector('#toDO').style.border = '1px solid black';
+            document.querySelector('#toDO').value = ' ';
+            console.log(document.querySelector('#toDO').value);
 
         },
         setState(state, value){
             state.toDoText = value;
+            value = '';
         }
 
     },

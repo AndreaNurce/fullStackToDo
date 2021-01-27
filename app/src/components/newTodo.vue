@@ -2,13 +2,13 @@
 
     <div class="addToDo">
 
-            <div v-show="show" v-on:click="save" class="newItem">
+            <div v-show="show" v-on:click="newItem(); payload='' " class="newItem">
                 <span> Add new item </span>
                 <img style="height:20px;padding: 5px;" src="../assets/add.png" alt=" " >
             </div>
 
             <div class="addNewItem"  v-show="!show">
-                <input type="text" v-model="payload" @keyup="printeee(payload)"  style="width:200px" id="toDO">
+                <input id="toDO" type="text" v-model="payload" @keyup="bindValue(payload)"  style="width:200px"  value="The text">
                 <div class="important" @click="stare"> 
                     <span>Important</span>
                      <img v-if="!important" style="height:16px;padding:0 0 0 15px;" src="../assets/star.png" alt=" " > 
@@ -38,8 +38,8 @@ export default {
         ...mapState(['show','important','toDoText']),
 
     },methods: {
-        ...mapMutations(['stare','save','setState']),
-        printeee :function(value){
+        ...mapMutations(['stare','save','setState','newItem']),
+        bindValue :function(value){
             this.setState(value);
         }
     }
