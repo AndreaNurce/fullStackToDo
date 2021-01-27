@@ -11,11 +11,18 @@ export default new Vuex.Store({
         show: true,
         important: false,
         toDoText : '',
+        response : [],
     },
     mutations :{
-        getDate(state) {
+        async getDate(state) {
             var currentDate = new Date();
             state.week = currentDate.toLocaleString("default", { weekday: "long" });
+
+            let res = await axios.get('http://localhost:5000/', {
+                params: {
+                    day: state.week
+                }});
+            state.response = res.data;
             
         },
         print(state,payload){
@@ -45,9 +52,6 @@ export default new Vuex.Store({
             state.show = !state.show;
             state.important = false;
             document.querySelector('#toDO').style.border = '1px solid black';
-            document.querySelector('#toDO').value = ' ';
-            console.log(document.querySelector('#toDO').value);
-
         },
         setState(state, value){
             state.toDoText = value;

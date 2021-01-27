@@ -2,9 +2,9 @@
 
     <div id="toDoList" >
         <ul>
-            <li>To do item
+            <li :key='index' v-for="(res, index) in response" >{{res.data}}
                 <div>
-                <img
+                <img v-if="res.important"
                     style="height:20px;padding:0 15px;"
                     src="../assets/stared.png" 
                     alt=" " > 
@@ -14,18 +14,7 @@
                     alt=" " > 
                 </div>
             </li>
-            <li>To do item
-                <div>
-                <img
-                    style="height:20px;padding:0 15px;"
-                    src="../assets/stared.png" 
-                    alt=" " > 
-                <img
-                    style="height:20px;padding:0 15px;"
-                    src="../assets/delete.png" 
-                    alt=" " > 
-                </div>
-            </li>
+            
         </ul>
 
     </div>
@@ -33,7 +22,11 @@
 </template>
 
 <script>
+  import {mapState} from 'vuex'
 export default {
+        computed :{
+        ...mapState(['response'])
+    },
 
 }
 </script>

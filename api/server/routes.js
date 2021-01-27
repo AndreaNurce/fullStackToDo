@@ -23,5 +23,12 @@ router.post('/', async (req, res) => {
     res.end();
 })
 
+
+router.get('/', async (req, res) =>{
+    let response = await Data.find({ day: req.query.day})
+    res.send(response);
+    res.end();
+});
+
 module.exports = router;
 
