@@ -49,7 +49,6 @@ export default new Vuex.Store({
                 day: state.week,
                 data: state.toDoText,
                 important: state.important,
-                checked : false
             })
 
             let res = await axios.get('http://localhost:5000/', {
@@ -58,10 +57,9 @@ export default new Vuex.Store({
                 }
             });
             state.response = res.data;
-
-             
             state.show = !state.show;
             state.important =false;
+            state.toDoText = ' ';
 
 
         }, newItem(state){

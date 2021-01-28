@@ -5,7 +5,9 @@ var router = express.Router();
 let dataSchema = new mongoose.Schema({
     day: { type: String },
     data: { type: String, required: true },
-    important: Boolean
+    important: Boolean,
+    checked: Boolean
+
 });
 
 let Data = new mongoose.model('Data', dataSchema);
@@ -15,7 +17,7 @@ router.post('/', async (req, res) => {
         day: req.body.day,
         data: req.body.data,
         important: req.body.important,
-        checked : req.body.checked
+        checked: false
     });
     await dataSchema.save();
     res.send("saved");

@@ -7,7 +7,7 @@ const cors = require('cors')
 dotenv.config();
 
 
-mongoose.connect('mongodb://localhost:27017/ToDo', {
+mongoose.connect('mongodb+srv://AndreaNurce:<andrea><nurce>@cluster0.wim37.mongodb.net/ToDo?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     'useCreateIndex': true,
