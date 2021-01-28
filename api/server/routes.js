@@ -14,11 +14,10 @@ router.post('/', async (req, res) => {
     let dataSchema = new Data({
         day: req.body.day,
         data: req.body.data,
-        important: req.body.important
+        important: req.body.important,
+        checked : req.body.checked
     });
-
     await dataSchema.save();
-
     res.send("saved");
     res.end();
 })

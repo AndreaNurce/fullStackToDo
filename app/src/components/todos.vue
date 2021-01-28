@@ -2,7 +2,7 @@
 
     <div id="toDoList" >
         <ul>
-            <li :key='index' v-for="(res, index) in response" >{{res.data}}
+            <li :key='index' v-for="(res, index) in response" id="res._id">{{res.data}}
                 <div>
                 <img v-if="res.important"
                     style="height:20px;padding:0 15px;"

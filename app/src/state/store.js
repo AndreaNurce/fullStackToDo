@@ -25,8 +25,15 @@ export default new Vuex.Store({
             state.response = res.data;
             
         },
-        print(state,payload){
+        async print(state,payload){
             state.week = payload;
+
+            let res = await axios.get('http://localhost:5000/', {
+                params: {
+                    day: state.week
+                }
+            });
+            state.response = res.data;
         }, 
         stare(state){
             state.important = !state.important;
@@ -36,13 +43,22 @@ export default new Vuex.Store({
                 document.querySelector('#toDO').style.border = '1px solid black';
             }
         },
-        save(state) {
+        async save(state) {
 
-            axios.post('http://localhost:5000/',{
+            await axios.post('http://localhost:5000/',{
                 day: state.week,
                 data: state.toDoText,
-                important: state.important
+                important: state.important,
+                checked : false
             })
+
+            let res = await axios.get('http://localhost:5000/', {
+                params: {
+                    day: state.week
+                }
+            });
+            state.response = res.data;
+
              
             state.show = !state.show;
             state.important =false;
@@ -52,6 +68,8 @@ export default new Vuex.Store({
             state.show = !state.show;
             state.important = false;
             document.querySelector('#toDO').style.border = '1px solid black';
+            
+
         },
         setState(state, value){
             state.toDoText = value;
