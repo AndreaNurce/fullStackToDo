@@ -8,7 +8,7 @@
                     style="height:20px;padding:0 15px;" 
                     src="../assets/stared.png" 
                     alt=" " > 
-                <img
+                <img @click="deleteItem(res._id)"
                     style="height:20px;padding:0 15px;"
                     src="../assets/delete.png" 
                     alt=" " > 
@@ -28,7 +28,7 @@ export default {
         computed :{
         ...mapState(['response'])
     },methods: {
-        ...mapMutations(['checked'])
+        ...mapMutations(['checked','deleteItem'])
     },
 
 }

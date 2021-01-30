@@ -74,13 +74,17 @@ export default new Vuex.Store({
             value = '';
         }, async checked(state , [check,id]){
             check = !check
-            console.log(id, 'id');
-            console.log(check, 'check');
             let res = await axios.put('http://localhost:5000/', {
                 day : state.week,
                 id: id,
                 checked : check
             });
+            state.response = res.data;
+        }, async deleteItem(state , id){
+            let res = await axios.delete('http://localhost:5000/' ,{params :  {
+                day: state.week,
+                id: id, 
+            }});
             state.response = res.data;
         }
 
