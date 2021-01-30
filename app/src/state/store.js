@@ -23,11 +23,9 @@ export default new Vuex.Store({
                     day: state.week
                 }});
             state.response = res.data;
-            
         },
         async print(state,payload){
             state.week = payload;
-
             let res = await axios.get('http://localhost:5000/', {
                 params: {
                     day: state.week
@@ -44,6 +42,7 @@ export default new Vuex.Store({
             }
         },
         async save(state) {
+            if (state.toDoText !== ''){
 
             await axios.post('http://localhost:5000/',{
                 day: state.week,
@@ -51,16 +50,17 @@ export default new Vuex.Store({
                 important: state.important,
             })
 
-            let res = await axios.get('http://localhost:5000/', {
-                params: {
-                    day: state.week
-                }
-            });
-            state.response = res.data;
+                let res = await axios.get('http://localhost:5000/', {
+                    params: {
+                        day: state.week
+                    }
+                });
+                state.response = res.data;
+            
             state.show = !state.show;
             state.important =false;
-            state.toDoText = ' ';
-
+            state.toDoText = '';
+        }
 
         }, newItem(state){
             state.show = !state.show;
@@ -72,6 +72,16 @@ export default new Vuex.Store({
         setState(state, value){
             state.toDoText = value;
             value = '';
+        }, async checked(state , [check,id]){
+            check = !check
+            console.log(id, 'id');
+            console.log(check, 'check');
+            let res = await axios.put('http://localhost:5000/', {
+                day : state.week,
+                id: id,
+                checked : check
+            });
+            state.response = res.data;
         }
 
     },

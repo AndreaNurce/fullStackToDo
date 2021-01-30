@@ -16,7 +16,7 @@
 
                 </div>
             
-                <div class="save" v-on:click="save" >
+                <div class="save" v-on:click="save()" >
                     <span>Save</span>
                     <img style="height:16px;padding:0 0 0 15px;" src="../assets/down-arrow.png" alt=" " >
                  </div>

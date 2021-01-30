@@ -2,10 +2,10 @@
 
     <div id="toDoList" >
         <ul>
-            <li :key='index' v-for="(res, index) in response" id="res._id">{{res.data}}
+            <li :class="{checked: res.checked == true }" :key='index' v-for="(res, index) in response" :id="res._id"   @click="checked([res.checked, res._id ])">{{res.data}}
                 <div>
                 <img v-if="res.important"
-                    style="height:20px;padding:0 15px;"
+                    style="height:20px;padding:0 15px;" 
                     src="../assets/stared.png" 
                     alt=" " > 
                 <img
@@ -22,10 +22,13 @@
 </template>
 
 <script>
+    import { mapMutations } from 'vuex'
   import {mapState} from 'vuex'
 export default {
         computed :{
         ...mapState(['response'])
+    },methods: {
+        ...mapMutations(['checked'])
     },
 
 }
@@ -60,6 +63,10 @@ justify-content: space-between;
 align-items: center;
 list-style-type: none;
 padding: 15px;
+}
+.checked{
+    opacity: 0.5;
+    text-decoration: line-through;
 
 }
 li:nth-child(even) {
