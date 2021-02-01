@@ -8,7 +8,7 @@
                     style="height:20px;padding:0 15px;" 
                     src="../assets/stared.png" 
                     alt=" " > 
-                <img @click="deleteItem(res._id)"
+                <img class="delete" @click="deleteItem(res._id)"
                     style="height:20px;padding:0 15px;"
                     src="../assets/delete.png" 
                     alt=" " > 
@@ -83,5 +83,7 @@ background-color: darkgrey;
     text-align: center;
     height: 500px;
     margin-top: 10%;
+}.delete:hover{
+cursor: pointer;
 }
 </style>
