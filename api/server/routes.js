@@ -24,9 +24,23 @@ router.post('/', async (req, res) => {
     res.end();
 })
 
+router.put('/', async (req, res) => {
+    await Data.updateOne({ _id: req.body.id }, { $set: { checked: req.body.checked } });
+    let response = await Data.find({ day: req.body.day })
+    res.send(response);
+    res.end();
+
+});
 
 router.get('/', async (req, res) =>{
     let response = await Data.find({ day: req.query.day})
+    res.send(response);
+    res.end();
+});
+
+router.delete('/' , async (req,res) =>{
+    await Data.deleteOne({ _id: req.query.id });
+    let response = await Data.find({ day: req.query.day });
     res.send(response);
     res.end();
 });
