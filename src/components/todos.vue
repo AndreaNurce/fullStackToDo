@@ -1,7 +1,7 @@
 <template>
 
     <div id="toDoList" >
-        <ul >
+        <ul v-if="response.length">
             <li :class="{checked: res.checked == true }" :key='index' v-for="(res, index) in response" :id="res._id"   @click="checked([res.checked, res._id ])">{{res.data}}
                 <div>
                 <img v-if="res.important"
@@ -13,10 +13,14 @@
                     src="../assets/delete.png" 
                     alt=" " > 
                 </div>
+                
             </li>
-            <div v-if="!response.length"  > </div>
-            
         </ul>
+            <div v-if="!response.length" class="noresult"  > 
+                <img src="../assets/noresult.png" alt="">
+                <h2>No task on <b>{{week}}</b> </h2>
+             </div>
+            
 
     </div>
   
@@ -27,7 +31,7 @@
   import {mapState} from 'vuex'
 export default {
         computed :{
-        ...mapState(['response','response'])
+        ...mapState(['response','week'])
     },methods: {
         ...mapMutations(['checked','deleteItem'])
     },
@@ -73,5 +77,11 @@ padding: 15px;
 li:nth-child(even) {
 background-color: darkgrey;
 
+} .noresult{
+    width: 100%;
+    display: block;
+    text-align: center;
+    height: 500px;
+    margin-top: 10%;
 }
 </style>
