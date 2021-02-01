@@ -53,6 +53,7 @@ li{
     padding: 5px;
     margin: 5px 0px ;
     transition:all ease-in-out .2s;
+    opacity: 0.6;
 
 }
 li:hover{
@@ -65,6 +66,7 @@ ul{
     color:blue;    
     transform: scale(1.5);
     padding: 15px;
+    opacity: 1;
 }
 
 </style>

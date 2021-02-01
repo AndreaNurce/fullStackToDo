@@ -1,7 +1,7 @@
 <template>
 
     <div id="toDoList" >
-        <ul>
+        <ul >
             <li :class="{checked: res.checked == true }" :key='index' v-for="(res, index) in response" :id="res._id"   @click="checked([res.checked, res._id ])">{{res.data}}
                 <div>
                 <img v-if="res.important"
@@ -14,6 +14,7 @@
                     alt=" " > 
                 </div>
             </li>
+            <div v-if="!response.length"  > </div>
             
         </ul>
 
@@ -26,7 +27,7 @@
   import {mapState} from 'vuex'
 export default {
         computed :{
-        ...mapState(['response'])
+        ...mapState(['response','response'])
     },methods: {
         ...mapMutations(['checked','deleteItem'])
     },
