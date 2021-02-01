@@ -28,4 +28,4 @@ app.use(express.json());
 app.use(routes) 
 
 
-app.listen(5000, () => console.log('Server up and runnig on port 5000' ));
+app.listen(process.env.PORT, () => console.log('Server up and runnig on port 5000' ));

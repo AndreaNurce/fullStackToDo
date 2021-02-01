@@ -11,8 +11,9 @@ let dataSchema = new mongoose.Schema({
 });
 
 let Data = new mongoose.model('Data', dataSchema);
+let url = 'https://git.heroku.com/full-stack-to-do.git';
 
-router.post('/', async (req, res) => {
+router.post(url, async (req, res) => {
     let dataSchema = new Data({
         day: req.body.day,
         data: req.body.data,
@@ -24,7 +25,7 @@ router.post('/', async (req, res) => {
     res.end();
 })
 
-router.put('/', async (req, res) => {
+router.put(url, async (req, res) => {
     await Data.updateOne({ _id: req.body.id }, { $set: { checked: req.body.checked } });
     let response = await Data.find({ day: req.body.day })
     res.send(response);
@@ -32,13 +33,13 @@ router.put('/', async (req, res) => {
 
 });
 
-router.get('/', async (req, res) =>{
+router.get(url, async (req, res) =>{
     let response = await Data.find({ day: req.query.day})
     res.send(response);
     res.end();
 });
 
-router.delete('/' , async (req,res) =>{
+router.delete(url , async (req,res) =>{
     await Data.deleteOne({ _id: req.query.id });
     let response = await Data.find({ day: req.query.day });
     res.send(response);

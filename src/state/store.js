@@ -12,13 +12,14 @@ export default new Vuex.Store({
         important: false,
         toDoText : '',
         response : [],
+        url: 'https://git.heroku.com/full-stack-to-do.git'
     },
     mutations :{
         async getDate(state) {
             var currentDate = new Date();
             state.week = currentDate.toLocaleString("default", { weekday: "long" });
 
-            let res = await axios.get('http://localhost:5000/', {
+            let res = await axios.get(state.url, {
                 params: {
                     day: state.week
                 }});
@@ -26,7 +27,7 @@ export default new Vuex.Store({
         },
         async print(state,payload){
             state.week = payload;
-            let res = await axios.get('http://localhost:5000/', {
+            let res = await axios.get(state.url, {
                 params: {
                     day: state.week
                 }
@@ -44,13 +45,13 @@ export default new Vuex.Store({
         async save(state) {
             if (state.toDoText !== ''){
 
-            await axios.post('http://localhost:5000/',{
+            await axios.post(state.url,{
                 day: state.week,
                 data: state.toDoText,
                 important: state.important,
             })
 
-                let res = await axios.get('http://localhost:5000/', {
+                let res = await axios.get(state.url, {
                     params: {
                         day: state.week
                     }
@@ -74,14 +75,14 @@ export default new Vuex.Store({
             value = '';
         }, async checked(state , [check,id]){
             check = !check
-            let res = await axios.put('http://localhost:5000/', {
+            let res = await axios.put(state.url, {
                 day : state.week,
                 id: id,
                 checked : check
             });
             state.response = res.data;
         }, async deleteItem(state , id){
-            let res = await axios.delete('http://localhost:5000/' ,{params :  {
+            let res = await axios.delete(state.url ,{params :  {
                 day: state.week,
                 id: id, 
             }});
