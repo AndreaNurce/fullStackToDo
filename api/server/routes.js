@@ -11,7 +11,7 @@ let dataSchema = new mongoose.Schema({
 });
 
 let Data = new mongoose.model('Data', dataSchema);
-let url = 'https://git.heroku.com/full-stack-to-do.git';
+let url = 'https://full-stack-to-do.herokuapp.com/';
 
 router.post(url, async (req, res) => {
     let dataSchema = new Data({

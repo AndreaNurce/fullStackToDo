@@ -12,7 +12,7 @@ export default new Vuex.Store({
         important: false,
         toDoText : '',
         response : [],
-        url: 'https://git.heroku.com/full-stack-to-do.git'
+        url: 'https://full-stack-to-do.herokuapp.com/'
     },
     mutations :{
         async getDate(state) {
