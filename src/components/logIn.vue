@@ -26,8 +26,6 @@
           <br>
           
           <button class="button button-block" >Log In</button>
-        
-          
           </form>
 
         </div>
