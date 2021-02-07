@@ -13,6 +13,9 @@
                 </ul>
         </div>
             </aside>
+
+            <router-link to="/signUp" class="tab "  tag="li" exact> <a >Sign Up</a></router-link>
+        <router-link to="/logIn" class="tab active "  tag="li" exact> <a >Log In</a></router-link>
     </div>
 </template>
 
