@@ -4,7 +4,6 @@
     <br><br>
       
       <ul class="tab-group">
-
         <router-link to="/signUp" class="tab active"  tag="li" exact> <a >Sign Up</a></router-link>
         <router-link to="/logIn" class="tab "  tag="li" exact> <a >Log In</a></router-link>
       </ul>
@@ -12,24 +11,16 @@
       <div class="tab-content">
         <div id="signup">   
           <h1>Sign Up for Free</h1>
-          
           <form >
           
-          <div class="top-row">
-            <div class="field-wrap">
-              <input type="text" placeholder=" First Name" required autocomplete="off" />
-            </div>
-        
-            <div class="field-wrap">
-
-              <input type="text" placeholder=" Last Name" required autocomplete="off"/>
-            </div>
-          </div>
-
           <div class="field-wrap">
             <input type="email" placeholder="Email Address" required autocomplete="off"/>
           </div>
           
+          <div class="field-wrap">
+            <input type="password" placeholder=" Set A Password" required autocomplete="off"/>
+          </div>
+
           <div class="field-wrap">
             <input type="password" placeholder=" Set A Password" required autocomplete="off"/>
           </div>

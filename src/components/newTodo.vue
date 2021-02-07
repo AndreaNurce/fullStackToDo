@@ -8,7 +8,7 @@
             </div>
 
             <div class="addNewItem"  v-show="!show">
-                <input id="toDO" type="text" v-model="payload" @keyup="bindValue(payload)"  style="width:200px"  value="The text">
+                <input id="toDO" type="text"  v-model="payload" @keyup="bindValue(payload)"  style="width:200px"  value="The text">
                 <div class="important" @click="stare"> 
                     <span>Important</span>
                      <img v-if="!important" style="height:16px;padding:0 0 0 15px;" src="../assets/star.png" alt=" " > 
@@ -21,6 +21,7 @@
                     <img style="height:16px;padding:0 0 0 15px;" src="../assets/down-arrow.png" alt=" " >
                  </div>
             </div>
+         
     </div>
 </template>
 

@@ -58,6 +58,7 @@ li{
 }
 li:hover{
    cursor: pointer;
+   opacity: 1;
 }
 ul{
         transform: translateY(-10%);
