@@ -16,9 +16,8 @@ const router = new vueRouter({
   history: true,
   hashbang: false,
   saveScrollPosition: true,
-  mode: 'html5',
-  root: '/user/',
   routes,
+  mode: 'history'
 })
 
 new Vue({
