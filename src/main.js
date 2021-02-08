@@ -15,7 +15,7 @@ Vue.config.productionTip = false
 const router = new vueRouter({
   routes,
   mode: 'history',
-  base: 'https://www.full-stack-to-do.herokuapp.com/',
+  base: 'https://full-stack-to-do.herokuapp.com/',
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition
