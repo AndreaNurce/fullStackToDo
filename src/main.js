@@ -14,7 +14,7 @@ Vue.config.productionTip = false
 
 const router = new vueRouter({
   history: true,
-  hashbang: false,
+  hashbang: true,
   saveScrollPosition: true,
   routes,
 })
