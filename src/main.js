@@ -13,6 +13,7 @@ Vue.use(axios);
 Vue.config.productionTip = false
 
 const router = new vueRouter({
+  mode: 'history',
   history: true,
   hashbang: false,
   saveScrollPosition: true,
