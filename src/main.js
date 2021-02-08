@@ -13,16 +13,10 @@ Vue.use(axios);
 Vue.config.productionTip = false
 
 const router = new vueRouter({
+  history: true,
+  hashbang: false,
+  saveScrollPosition: true,
   routes,
-  mode: 'history',
-  base: 'https://full-stack-to-do.herokuapp.com/',
-  scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition
-    } else {
-      return { x: 0, y: 0 }
-    }
-  }
 })
 
 new Vue({
