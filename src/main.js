@@ -17,7 +17,6 @@ const router = new vueRouter({
   hashbang: false,
   saveScrollPosition: true,
   routes,
-  mode: 'history'
 })
 
 new Vue({
