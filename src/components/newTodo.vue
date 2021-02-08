@@ -1,9 +1,6 @@
 <template>
 
     <div class="addToDo">
-        <router-link to="/signUp"   tag="li" exact> <a >Sign Up</a></router-link>
-        <router-link to="/logIn"  tag="li" exact> <a >Log In</a></router-link>
-
             <div v-show="show" v-on:click="newItem(); payload='' " class="newItem">
                 <span> Add new item </span>
                 <img style="height:20px;padding: 5px;" src="../assets/add.png" alt=" " >
