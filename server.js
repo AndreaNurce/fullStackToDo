@@ -3,6 +3,7 @@ const serveStatic = require('serve-static')
 const path = require('path')
 const cors = require('cors')
 
+app.use(cors())
 app.use('/',serveStatic(path.join(__dirname,'/dist')))
 
 if (process.env.NODE_ENV === 'production') {
