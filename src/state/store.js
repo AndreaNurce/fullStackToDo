@@ -87,7 +87,9 @@ export default new Vuex.Store({
                 id: id, 
             }});
             state.response = res.data;
+        }, async signUp() {
+            
         }
 
-    },
+    }
 })

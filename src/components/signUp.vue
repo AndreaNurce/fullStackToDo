@@ -4,8 +4,17 @@
     <br><br>
       
       <ul class="tab-group">
-        <router-link to="/signUp" class="tab active"  tag="li" exact> <a >Sign Up</a></router-link>
-        <router-link to="/logIn" class="tab "  tag="li" exact> <a >Log In</a></router-link>
+        <router-link to="/signUp"
+         class="tab active"  
+         tag="li" exact> 
+         <a >Sign Up</a>
+         </router-link>
+
+        <router-link to="/logIn" 
+        class="tab "
+          tag="li"
+           exact> <a >Log In</a>
+           </router-link>
       </ul>
       
       <div class="tab-content">
@@ -14,20 +23,34 @@
           <form >
           
           <div class="field-wrap">
-            <input type="email" placeholder="Email Address" required autocomplete="off"/>
-          </div>
-          
-          <div class="field-wrap">
-            <input type="password" placeholder=" Set A Password" required autocomplete="off"/>
+            <input type="email"
+             v-model="email"
+             placeholder="Email Address" 
+             required 
+             autocomplete="off"/>
           </div>
 
           <div class="field-wrap">
-            <input type="password" placeholder=" Set A Password" required autocomplete="off"/>
+            <input v-model="number" type="text" 
+            placeholder="Phone number" 
+            required autocomplete="off"/>
           </div>
-          <button type="submit" class="button button-block">Get Started</button>
           
+          <div class="field-wrap">
+            <input v-model="password" type="password" 
+            placeholder=" Set A Password" 
+            required autocomplete="off"/>
+          </div>
+
+          <div class="field-wrap">
+            <input  v-model="confirmPassword" type="password"
+            placeholder=" Set A Password"
+            required 
+            autocomplete="off"/>
+          </div>
+          <div @click="signUp()" type="submit" 
+          class="button button-block">Get Started</div>
           </form>
-
         </div>
     </div>
 </div>
@@ -36,7 +59,28 @@
 </template>
 
 <script>
+    import axios from 'axios'
 export default {
+
+  data() {
+    return {
+      email :'',
+      number : '',
+      password : '',
+      confirmPassword : '',
+      error : ''
+      
+    }
+  },methods: {
+
+       signUp : async function(){
+        await axios.post('https://back-en-to-do.herokuapp.com/signUp/', {
+                email: this.email,
+                password: this.password,
+                phoneNumber: this.number
+            })
+      }
+  },
 
 }
 </script>
