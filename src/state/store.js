@@ -12,7 +12,9 @@ export default new Vuex.Store({
         important: false,
         toDoText : '',
         response : [],
-        url: 'https://back-en-to-do.herokuapp.com/'
+        url: 'https://back-en-to-do.herokuapp.com/',
+        token : null,
+        email : ''
     },
     mutations :{
         async getDate(state) {
@@ -87,8 +89,6 @@ export default new Vuex.Store({
                 id: id, 
             }});
             state.response = res.data;
-        }, async signUp() {
-            
         }
 
     }

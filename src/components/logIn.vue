@@ -14,18 +14,22 @@
           <form>
             <div class="field-wrap">
 
-            <input type="email" placeholder="Email Address" required autocomplete="off"/>
+            <input type="email" v-model="email"
+             placeholder="Email Address" 
+             required 
+             autocomplete="off"/>
           </div>
           
           <div class="field-wrap">
 
-            <input type="password" placeholder="Password" required autocomplete="off"/>
+            <input type="password" v-model="password" 
+            placeholder="Password" required autocomplete="off"/>
           </div>
           <br>
           <p class="forgot"><a>Forgot Password?</a></p>
           <br>
           
-          <button class="button button-block" >Log In</button>
+          <div @click="signIn()" class="button button-block" >Log In</div>
           </form>
 
         </div>
@@ -37,7 +41,25 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
+
+  data() {
+    return {
+      email : '',
+      password : ''
+    }
+  },methods: {
+    signIn : async function(){
+       let res =  await axios.post('http://localhost:5000/logIn' , {
+        password : this.password,
+        email : this.email
+      });
+      this.$store.state.email = res.data.email;
+      this.$store.state.token = res.data.accessToken;
+
+    }
+  },
 
 }
 </script>
