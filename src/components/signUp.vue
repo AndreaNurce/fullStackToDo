@@ -1,8 +1,6 @@
 <template>
 
 <div class="form">
-    <br><br>
-      
       <ul class="tab-group">
         <router-link to="/signUp"
          class="tab active"  
@@ -44,11 +42,12 @@
 
           <div class="field-wrap">
             <input  v-model="confirmPassword" type="password"
-            placeholder=" Set A Password"
+            placeholder=" Confirm  Password"
             required 
             autocomplete="off"/>
           </div>
-          <div @click="signUp()" type="submit" 
+              <div style="color : red; text-align:center;" v-if="error" >{{error}}</div>
+          <div  style="text-align:center;" @click="signUp()" type="submit" 
           class="button button-block">Get Started</div>
           </form>
         </div>
@@ -74,11 +73,19 @@ export default {
   },methods: {
 
        signUp : async function(){
-        await axios.post('https://back-en-to-do.herokuapp.com/signUp/', {
-                email: this.email,
-                password: this.password,
-                phoneNumber: this.number
-            })
+
+      if(this.password != this.confirmPassword){
+            this.error = "Passwords do not match"
+         }else if(this.password == ''||this.email == ''||this.number == ''){
+            this.error = "Fields can not be empty"
+         }else{
+           this.error = null;
+           await axios.post('http://localhost:5000/signUp', {
+                  email: this.email,
+                  password: this.password,
+                  phoneNumber: this.number
+              }).then(this.$router.push('/logIn'))
+         }
       }
   },
 
