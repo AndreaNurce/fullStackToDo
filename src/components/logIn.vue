@@ -52,11 +52,14 @@ export default {
     }
   },methods: {
     signIn : async function(){
-       let res = await axios.post('http://localhost:5000/logIn' , {
+      let res =  await axios.post('http://localhost:5000/logIn' , {
         password : this.password,
         email : this.email
-      });
-      localStorage.setItem('token' , res.data.accessToken);
+      })
+      localStorage.setItem('token' , res.data.accessToken)
+      axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
+
+      this.$router.push('/')
     }
   },
 

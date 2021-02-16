@@ -32,8 +32,9 @@ export default new Vuex.Store({
                 params: {
                     day: state.week
                 }
-            });
+            })
             state.response = res.data;
+            
         }, 
         stare(state){
             state.important = !state.important;
