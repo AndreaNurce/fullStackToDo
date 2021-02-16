@@ -6,9 +6,14 @@ import axios from 'axios'
 import vueRouter from 'vue-router'
 import { routes } from './routes.js'
 
+
+axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
+
+
 Vue.use(vueRouter);
 Vue.use(Vuex);
 Vue.use(axios);
+
 
 Vue.config.productionTip = false
 

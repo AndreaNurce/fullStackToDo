@@ -5,6 +5,7 @@ import axios from 'axios'
 Vue.use(Vuex)
 Vue.use(axios)
 
+
 export default new Vuex.Store({
     state :{
         week: '',
@@ -12,9 +13,7 @@ export default new Vuex.Store({
         important: false,
         toDoText : '',
         response : [],
-        url: 'https://back-en-to-do.herokuapp.com/',
-        token : null,
-        email : ''
+        url: 'http://localhost:5000/',
     },
     mutations :{
         async getDate(state) {

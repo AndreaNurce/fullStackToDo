@@ -42,6 +42,7 @@
 
 <script>
 import axios from 'axios'
+
 export default {
 
   data() {
@@ -51,13 +52,11 @@ export default {
     }
   },methods: {
     signIn : async function(){
-       let res =  await axios.post('http://localhost:5000/logIn' , {
+       let res = await axios.post('http://localhost:5000/logIn' , {
         password : this.password,
         email : this.email
       });
-      this.$store.state.email = res.data.email;
-      this.$store.state.token = res.data.accessToken;
-
+      localStorage.setItem('token' , res.data.accessToken);
     }
   },
 
