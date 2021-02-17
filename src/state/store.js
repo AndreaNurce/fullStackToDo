@@ -13,7 +13,7 @@ export default new Vuex.Store({
         important: false,
         toDoText : '',
         response : [],
-        url: 'https://back-en-to-do.herokuapp.com//',
+        url: 'https://back-en-to-do.herokuapp.com/',
     },
     mutations :{
         async getDate(state) {
