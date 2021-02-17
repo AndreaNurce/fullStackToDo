@@ -52,7 +52,7 @@ export default {
     }
   },methods: {
     signIn : async function(){
-      let res =  await axios.post('http://localhost:5000/logIn' , {
+      let res =  await axios.post('https://back-en-to-do.herokuapp.com/logIn' , {
         password : this.password,
         email : this.email
       })

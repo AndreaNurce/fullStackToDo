@@ -80,7 +80,7 @@ export default {
             this.error = "Fields can not be empty"
          }else{
            this.error = null;
-           await axios.post('http://localhost:5000/signUp', {
+           await axios.post('https://back-en-to-do.herokuapp.com/signUp', {
                   email: this.email,
                   password: this.password,
                   phoneNumber: this.number
