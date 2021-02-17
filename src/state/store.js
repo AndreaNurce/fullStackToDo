@@ -22,7 +22,8 @@ export default new Vuex.Store({
 
             let res = await axios.get(state.url, {
                 params: {
-                    day: state.week
+                    day: state.week,
+                    email : localStorage.getItem('email')
                 }});
             state.response = res.data;
         },
@@ -30,7 +31,9 @@ export default new Vuex.Store({
             state.week = payload;
             let res = await axios.get(state.url, {
                 params: {
-                    day: state.week
+                    day: state.week,
+                    email: localStorage.getItem('email')
+
                 }
             })
             state.response = res.data;
@@ -51,11 +54,15 @@ export default new Vuex.Store({
                 day: state.week,
                 data: state.toDoText,
                 important: state.important,
+                email: localStorage.getItem('email')
+
             })
 
                 let res = await axios.get(state.url, {
                     params: {
-                        day: state.week
+                        day: state.week,
+                        email: localStorage.getItem('email')
+
                     }
                 });
                 state.response = res.data;
@@ -78,6 +85,7 @@ export default new Vuex.Store({
         }, async checked(state , [check,id]){
             check = !check
             let res = await axios.put(state.url, {
+                email: localStorage.getItem('email'),
                 day : state.week,
                 id: id,
                 checked : check
@@ -87,6 +95,7 @@ export default new Vuex.Store({
             let res = await axios.delete(state.url ,{params :  {
                 day: state.week,
                 id: id, 
+                email: localStorage.getItem('email')
             }});
             state.response = res.data;
         }

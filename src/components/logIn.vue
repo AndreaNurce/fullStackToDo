@@ -28,7 +28,7 @@
           <br>
           <p class="forgot"><a>Forgot Password?</a></p>
           <br>
-          
+              <div style="color : red; text-align:center;" v-if="error" >{{error}}</div>
           <div @click="signIn()" class="button button-block" >Log In</div>
           </form>
 
@@ -48,19 +48,24 @@ export default {
   data() {
     return {
       email : '',
-      password : ''
+      password : '',
+      error : ''
     }
   },methods: {
     signIn : async function(){
-      let res =  await axios.post('https://back-en-to-do.herokuapp.com/logIn' , {
-        password : this.password,
-        email : this.email
-      })
-      localStorage.setItem('token' , res.data.accessToken)
-      axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
-
-      this.$router.push('/')
-    }
+      this.error = "";
+      if(this.email != ''||this.password != ''){
+        let res =  await axios.post('https://back-en-to-do.herokuapp.com/logIn' , {
+          password : this.password,
+          email : this.email
+        })
+        localStorage.setItem('token' , res.data.accessToken)
+        localStorage.setItem('email' , res.data.email)
+        axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
+        this.$router.push('/');
+    }else{
+      this.error = "Fields can not be empty";
+    }}
   },
 
 }
