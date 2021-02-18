@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+
+   <a href="/"> <img src="../assets/icon.png" alt=""></a>
+
     <logOut/>
     <side-bar/>
     <new-todo/>
@@ -29,5 +32,10 @@ export default {
 }
 </script>
 
-<style>
+<style scoped >
+img{
+  position: absolute;
+  height: 50px;
+  padding: 15px;
+}
 </style>
