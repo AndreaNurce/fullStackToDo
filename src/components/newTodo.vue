@@ -1,7 +1,8 @@
 <template>
 
     <div class="addToDo">
-            <div v-show="show" v-on:click="newItem(); payload='' " class="newItem">
+        <br><br>
+            <div v-show="show" v-on:click="newItem(); payload=''"    class="newItem">
                 <span> Add new item </span>
                 <img style="height:20px;padding: 5px;" src="../assets/add.png" alt=" " >
             </div>
@@ -16,8 +17,7 @@
                 </div>
             
                 <div class="save" v-on:click="save()" >
-                    <span>Save</span>
-                    <img style="height:16px;padding:0 0 0 15px;" src="../assets/down-arrow.png" alt=" " >
+                    <img style="height:16px;padding:5px 0;" src="../assets/down-arrow.png" alt=" " >
                  </div>
             </div>
          
@@ -50,9 +50,15 @@ export default {
 <style scoped>
 #toDO:focus{
     outline: none;
+    transition:  0.3s ease-in-out ;
+    
+}
+#toDO{
+    border-radius: 10px;
+    transition:  0.3s ease-in-out ;
 }
 .addToDo{
-        display: flex;
+    display: flex;
     align-items: center;
     justify-items: center;
     height: 200px;
@@ -63,6 +69,10 @@ export default {
     justify-items: center;
     margin: 0 auto;
     width: 525px;
+    border-radius: 10px;
+    transition:  0.3s ease-in-out ;
+
+
 }
 .addNewItem > * {
     padding : 5px;
@@ -72,12 +82,17 @@ export default {
     padding: 7px 14px  ;
 }
 .important ,.save{
+    color: white;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-items: center;
     padding: 6px 24px 6px 24px ;
     background-color: cadetblue;
     z-index: 100;
+    transition:  0.3s ease-in-out ;
+    border-radius: 10px;
+
 }
 .newItem  {
     display: flex;
@@ -86,13 +101,18 @@ export default {
     justify-content: center;
     background-color: cadetblue;
     padding: 3px 16px;
-    margin: 0 auto;
+    margin: 0    auto;
+    border-radius: 10px;
+    color: white;
+
 }
 .newItem{
     cursor: pointer;
+    transition:  0.3s ease-in-out ;
+
 }
-.newItem,.important ,.save:hover{
-     cursor: pointer;
+.newItem:hover, .important:hover,.save:hover{
+    background-color: rgb(53, 113, 116); 
 }
 
 </style>

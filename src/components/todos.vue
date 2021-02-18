@@ -59,6 +59,8 @@ ul{
 width : 90%;
 margin : 0 auto;
 padding: 15px;
+transition:  0.3s ease-in-out ;
+
 
 }
 li{
@@ -68,6 +70,8 @@ justify-content: space-between;
 align-items: center;
 list-style-type: none;
 padding: 15px;
+transition:  0.3s ease-in-out ;
+
 }
 .checked{
     opacity: 0.5;
@@ -75,7 +79,9 @@ padding: 15px;
 
 }
 li:nth-child(even) {
-background-color: darkgrey;
+background-color: rgb(184, 184, 184);
+border-radius: 10px;
+color: white;
 
 } .noresult{
     width: 100%;

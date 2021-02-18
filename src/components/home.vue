@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <logOut/>
     <side-bar/>
     <new-todo/>
     <todos/>
@@ -13,6 +14,7 @@
 import SideBar  from './weeks.vue'
 import newTodo  from './newTodo.vue'
 import todos  from './todos.vue'
+import logOut  from './logOut.vue'
 
 
 
@@ -21,7 +23,8 @@ export default {
   components :{
     SideBar,
     newTodo,
-    todos
+    todos,
+    logOut
   }
 }
 </script>
