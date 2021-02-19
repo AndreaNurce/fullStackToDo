@@ -65,7 +65,7 @@ ul{
         transform: translateY(-10%);
 }
 .active{
-    color:blue;    
+    color:#3a7274;    
     transform: scale(1.5);
     padding: 15px;
     opacity: 1;

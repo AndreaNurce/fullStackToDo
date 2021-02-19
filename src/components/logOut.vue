@@ -2,7 +2,7 @@
 
     <div id="logOut">
 
-        <p class="logOutButton">Log Out </p>
+        <p class="logOutButton" @click="logOut()">Log Out </p>
 
 
     </div>
@@ -14,6 +14,11 @@ export default {
     data() {
         return {
             email : localStorage.getItem('email'),
+        }
+    },methods: {
+        logOut : function (){
+            localStorage.clear();
+            this.$router.push('/logIn');
         }
     },
 
