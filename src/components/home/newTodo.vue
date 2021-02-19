@@ -4,20 +4,20 @@
         <br><br>
             <div v-show="show" v-on:click="newItem(); payload=''"    class="newItem">
                 <span> Add new item </span>
-                <img style="height:20px;padding: 5px;" src="../assets/add.png" alt=" " >
+                <img style="height:20px;padding: 5px;" src="../../assets/add.png" alt=" " >
             </div>
 
             <div class="addNewItem"  v-show="!show">
                 <input id="toDO" type="text"  v-model="payload" @keyup="bindValue(payload)"  style="width:200px"  value="The text">
                 <div class="important" @click="stare"> 
                     <span>Important</span>
-                     <img v-if="!important" style="height:16px;padding:0 0 0 15px;" src="../assets/star.png" alt=" " > 
-                     <img v-if="important" style="height:16px;padding:0 0 0 15px;" src="../assets/stared.png" alt=" " > 
+                     <img v-if="!important" style="height:16px;padding:0 0 0 15px;" src="../../assets/star.png" alt=" " > 
+                     <img v-if="important" style="height:16px;padding:0 0 0 15px;" src="../../assets/stared.png" alt=" " > 
 
                 </div>
             
                 <div class="save" v-on:click="save()" >
-                    <img style="height:16px;padding:5px 0;" src="../assets/down-arrow.png" alt=" " >
+                    <img style="height:16px;padding:5px 0;" src="../../assets/down-arrow.png" alt=" " >
                  </div>
             </div>
          

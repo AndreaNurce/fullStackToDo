@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-   <a href="/"> <img src="../assets/icon.png" alt=""></a>
+   <a href="/"> <img src="../../assets/icon.png" alt=""></a>
 
     <logOut/>
     <side-bar/>
@@ -17,7 +17,7 @@
 import SideBar  from './weeks.vue'
 import newTodo  from './newTodo.vue'
 import todos  from './todos.vue'
-import logOut  from './logOut.vue'
+import logOut  from '../logOut.vue'
 
 
 

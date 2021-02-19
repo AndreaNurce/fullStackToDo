@@ -6,18 +6,18 @@
                 <div>
                 <img v-if="res.important"
                     style="height:20px;padding:0 15px;" 
-                    src="../assets/stared.png" 
+                    src="../../assets/stared.png" 
                     alt=" " > 
                 <img class="delete" @click="deleteItem(res._id)"
                     style="height:20px;padding:0 15px;"
-                    src="../assets/delete.png" 
+                    src="../../assets/delete.png" 
                     alt=" " > 
                 </div>
                 
             </li>
         </ul>
             <div v-if="!response.length" class="noresult"  > 
-                <img src="../assets/noresult.png" alt="">
+                <img src="../../assets/noresult.png" alt="">
                 <h2>No task on <b>{{week}}</b> </h2>
              </div>
             
