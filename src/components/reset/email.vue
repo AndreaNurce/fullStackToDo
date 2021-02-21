@@ -56,6 +56,7 @@ export default {
             if(!res.data.error){
                 localStorage.setItem('recoverToken' , res.data.accessToken);
                 localStorage.setItem('recoverEmail' , res.data.email);
+                axios.defaults.headers.common['Authorization'] = localStorage.getItem('recoverToken');
                 this.error = null;
                 this.$router.push('/accounts/password');
             }else{
@@ -67,7 +68,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped  >
 *, *:before, *:after {
   box-sizing: border-box;
 }

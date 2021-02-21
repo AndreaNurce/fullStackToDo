@@ -1,73 +1,76 @@
 <template>
-  <div>
-      <div class="form">
-    <br> <br>
 
-      
+<div class="form">
       <div class="tab-content">
-        <div id="email">   
-          <br>
-          <h1>Type your email</h1>
-          
-          <form>
-            <div class="field-wrap">
-            <input type="email" v-model="email"
-             placeholder="Email Address" 
-             required 
-             autocomplete="off"/>
+        <div id="resetPass">   
+          <h1>Set your new password</h1>
+          <form >
+
+          <div class="field-wrap">
+            <input v-model="password" type="password" 
+            placeholder=" Set A Password" 
+            required autocomplete="off"/>
           </div>
 
           <div class="field-wrap">
-            <input v-model="phoneNumber" type="text" 
-            placeholder="Phone number" 
-            required autocomplete="off"/>
+            <input  v-model="confirmPassword" type="password"
+            placeholder=" Confirm  Password"
+            required 
+            autocomplete="off"/>
           </div>
-          
               <div style="color : red; text-align:center;" v-if="error" >{{error}}</div>
-          <div @click="checkEmail()" class="button button-block" style="text-align:center;" >Continue</div>
+          <div  style="text-align:center;" @click="resetPass()" type="submit" 
+          class="button button-block">Resset password</div>
           </form>
-
         </div>
-        
-      </div>
-      
-</div> 
+    </div>
+</div>
+
   
-  </div>
 </template>
 
 <script>
-import axios from 'axios'
+    import axios from 'axios'
 export default {
-    data() {
-        return {
-            email : '',
-            phoneNumber : '',
-            error :'',
-        }
-    },methods: {
-        checkEmail : async  function (){
-        let res =await axios.get('https://back-en-to-do.herokuapp.com/resertpassword/password',{
-                params : {
-                    email : this.email,
-                    phoneNumber : this.phoneNumber
-                }
-            })
-            if(!res.data.error){
-                localStorage.setItem('recoverToken' , res.data.accessToken);
-                localStorage.setItem('recoverEmail' , res.data.email);
-                this.error = null;
-                this.$router.push('/accounts/password');
-            }else{
-                this.error = res.data.error
-            }
 
-        }
-    },
+  data() {
+    return {
+      password : '',
+      confirmPassword : '',
+      error : ''
+      
+    }
+  },methods: {
+
+       resetPass : async function(){
+
+      if(this.password != this.confirmPassword){
+            this.error = "Passwords do not match"
+         }else if(this.password == ''||this.email == ''||this.number == ''){
+            this.error = "Fields can not be empty"
+         }else{
+           this.error = null;
+            axios.defaults.headers.common['Authorization'] = localStorage.getItem('recoverToken');
+           let res = await axios.put('https://back-en-to-do.herokuapp.com/resertpassword/password', {
+                  password: this.password,
+                  email: localStorage.getItem('recoverEmail'),
+              })
+              if( res.data.message ){
+                    localStorage.clear();
+                    this.$router.push('/logIn');
+
+              }else{
+                  this.error = res.data.error
+              }
+         }
+      }
+  },
+
 }
 </script>
 
-<style>
+<style scoped>
+
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -90,10 +93,9 @@ a:hover {
   background: rgba(19, 35, 47, 0.9);
   padding: 40px;
   max-width: 600px;
-  margin: 10% auto;
+  margin: 40px auto;
   border-radius: 4px;
   box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
-
 }
 .tab-group {
   list-style: none;
@@ -218,6 +220,9 @@ textarea {
   display: block;
   width: 100%;
 }
-
+.forgot {
+  margin-top: -20px;
+  text-align: right;
+}
 
 </style>
