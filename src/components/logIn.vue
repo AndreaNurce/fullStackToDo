@@ -26,7 +26,7 @@
             placeholder="Password" required autocomplete="off"/>
           </div>
           <br>
-          <p class="forgot"><a>Forgot Password?</a></p>
+          <p class="forgot"><a href="/accounts/email" >Forgot Password?</a></p>
           <br>
               <div style="color : red; text-align:center;" v-if="error" >{{error}}</div>
           <div @click="signIn()" class="button button-block" style="text-align:center;" >Log In</div>

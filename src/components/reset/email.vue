@@ -16,6 +16,12 @@
              required 
              autocomplete="off"/>
           </div>
+
+          <div class="field-wrap">
+            <input v-model="phoneNumber" type="text" 
+            placeholder="Phone number" 
+            required autocomplete="off"/>
+          </div>
           
               <div style="color : red; text-align:center;" v-if="error" >{{error}}</div>
           <div @click="checkEmail()" class="button button-block" style="text-align:center;" >Continue</div>
@@ -36,19 +42,22 @@ export default {
     data() {
         return {
             email : '',
+            phoneNumber : '',
             error :'',
-            status : false
         }
     },methods: {
         checkEmail : async  function (){
         let res =await axios.get('http://localhost:5000/resertpassword/email',{
                 params : {
-                    email : this.email
+                    email : this.email,
+                    phoneNumber : this.phoneNumber
                 }
             })
             if(!res.data.error){
+                localStorage.setItem('recoverToken' , res.data.accessToken);
+                localStorage.setItem('recoverEmail' , res.data.email);
+                this.error = null;
                 this.$router.push('/accounts/password');
-                this.status = true;
             }else{
                 this.error = res.data.error
             }
