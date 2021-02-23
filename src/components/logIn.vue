@@ -59,7 +59,7 @@ export default {
           password : this.password,
           email : this.email
         })
-        if(res){
+        if(!res.data.error){
         localStorage.setItem('token' , res.data.accessToken)
         localStorage.setItem('email' , res.data.email)
         axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
