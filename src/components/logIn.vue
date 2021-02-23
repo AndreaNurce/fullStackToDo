@@ -59,10 +59,15 @@ export default {
           password : this.password,
           email : this.email
         })
+        if(res){
         localStorage.setItem('token' , res.data.accessToken)
         localStorage.setItem('email' , res.data.email)
         axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
         this.$router.push('/');
+        }else{
+          this.error = res.data.error;
+        }
+
     }else{
       this.error = "Fields can not be empty";
     }}
