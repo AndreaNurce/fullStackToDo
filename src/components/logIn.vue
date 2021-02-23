@@ -65,7 +65,7 @@ export default {
         axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
         this.$router.push('/');
         }else{
-          this.error = res.data.error;
+          this.error = 'Incorrect email or password';
         }
 
     }else{
