@@ -47,6 +47,7 @@ export default {
         }
     },methods: {
         checkEmail : async  function (){
+          this.error = '';
         let res =await axios.get('https://back-en-to-do.herokuapp.com/resertpassword/email',{
                 params : {
                     email : this.email,

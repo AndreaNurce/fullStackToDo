@@ -59,13 +59,14 @@ export default {
           password : this.password,
           email : this.email
         })
+        console.log(res)
         if(!res.data.error){
         localStorage.setItem('token' , res.data.accessToken)
         localStorage.setItem('email' , res.data.email)
         axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
         this.$router.push('/');
         }else{
-          this.error = 'Incorrect email or password';
+      this.error = res.data.error;
         }
 
     }else{
