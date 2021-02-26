@@ -46,7 +46,7 @@ export default {
 
       if(this.password != this.confirmPassword){
             this.error = "Passwords do not match"
-         }else if(this.password == ''||this.email == ''||this.number == ''){
+         }else if(this.password == '' || this.confirmPassword == ''){
             this.error = "Fields can not be empty"
          }else{
            this.error = null;
@@ -214,6 +214,8 @@ textarea {
   color: #ffffff;
   transition: all 0.5s ease;
   -webkit-appearance: none;
+  cursor :pointer;
+
 }
 .button:hover, .button:focus {
   background: #3b8588;

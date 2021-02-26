@@ -212,6 +212,8 @@ textarea {
   color: #ffffff;
   transition: all 0.5s ease;
   -webkit-appearance: none;
+  cursor :pointer;
+
 }
 .button:hover, .button:focus {
   background: #3b8588;
